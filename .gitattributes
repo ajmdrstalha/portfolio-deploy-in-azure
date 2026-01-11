@@ -1,0 +1,3 @@
+# Force Linux-friendly line endings in App Service
+*.sh text eol=lf
+*.toml text eol=lf
