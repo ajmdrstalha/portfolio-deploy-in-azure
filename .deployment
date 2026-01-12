@@ -1,0 +1,3 @@
+[config]
+# This repo is deployed as a Python web app.
+# Configure the App Service Startup Command to: bash startup.sh

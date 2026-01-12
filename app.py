@@ -13,11 +13,11 @@ st.set_page_config(
 
 def load_lottie_url(url: str):
     try:
-        r = requests.get(url)
+        r = requests.get(url, timeout=10)
         if r.status_code != 200:
             return None
         return r.json()
-    except:
+    except Exception:
         return None
 
 APP_DIR = Path(__file__).resolve().parent

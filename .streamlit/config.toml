@@ -1,1 +1,12 @@
 
+[browser]
+gatherUsageStats = false
+
+[server]
+# For Azure, the startup script passes address/port explicitly.
+# These defaults are primarily for local development.
+address = "127.0.0.1"
+port = 8000
+headless = false
+enableCORS = false
+enableXsrfProtection = false
