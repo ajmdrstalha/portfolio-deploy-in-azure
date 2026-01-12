@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/572efbcc-f28d-4a6e-8a8b-c83de02e4496/resourceGroups/T-Admin/providers/Microsoft.Web/sites/T-Azure",
-    "appService.deploySubpath": "."
-}
