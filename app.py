@@ -1,7 +1,5 @@
 import requests
-
 from pathlib import Path
-
 from PIL import Image
 import streamlit as st
 from streamlit_lottie import st_lottie
@@ -22,24 +20,23 @@ def load_lottie_url(url: str):
     except:
         return None
 
+APP_DIR = Path(__file__).resolve().parent
+
+def safe_open_image(path: Path):
+    try:
+        return Image.open(path)
+    except Exception as e:
+        st.warning(f"Missing/invalid image: {path.name} ({e})")
+        return None
+
 # Updated working Lottie link
 lottie_coding = load_lottie_url("https://assets2.lottiefiles.com/packages/lf20_0yfsb3a1.json")
 lottie_contact = load_lottie_url("https://lottie.host/5dabaff6-7ed5-40ef-b15e-c8d7603d8fec/4oObtAepCE.json")
 
-BASE_DIR = Path(__file__).resolve().parent
-
-
-def load_local_image(path: Path):
-    try:
-        return Image.open(path)
-    except FileNotFoundError:
-        return None
-
-
-#image upload for project 1
-image1 = load_local_image(BASE_DIR / "images" / "project1.png")
-#image upload for project 2
-image2 = load_local_image(BASE_DIR / "images" / "project2.png")
+# image upload for project 1
+image1 = safe_open_image(APP_DIR / "images" / "project1.png")
+# image upload for project 2
+image2 = safe_open_image(APP_DIR / "images" / "project2.png")
 
 
 # ----- Header Section ----
@@ -153,8 +150,6 @@ if selected == "Projects":
     with image_column:
         if image1:
             st.image(image1, caption="")
-        else:
-            st.info("Project image missing: images/project1.png")
 
     with text_column:
         st.subheader("OLT Auto Command")
@@ -171,8 +166,6 @@ if selected == "Projects":
     with image_column:
         if image2:
             st.image(image2, caption="")
-        else:
-            st.info("Project image missing: images/project2.png")
 
     with text_column:
         st.subheader("Networking Project")
