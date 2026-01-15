@@ -42,7 +42,7 @@ image2 = safe_open_image(APP_DIR / "images" / "project2.png")
 # ----- Header Section ----
 st.subheader("Welcome to my portfolio")
 st.title("AJ MD RS TALHA")
-st.write("DevOps & Automation Engineer")
+st.write("IT DevOps & System Engineer")
 
 
 # ----- Load CSS for Bootstrap Icons ----
@@ -84,7 +84,7 @@ st.markdown(
 with st.container():
     selected = option_menu(
         menu_title=None,
-        options=["About", "Skills", "Projects", "Contact"],
+        options=["About", "Experience & Skills", "Projects", "Contact"],
         icons=["person-circle","1-circle" , "code-slash", "chat"],
         orientation="horizontal",
     )
@@ -97,32 +97,96 @@ if selected == "About":
             st.header("About Me")
             st.write(
                 """
-                I am a DevOps Engineer with a passion for automating and optimizing processes. 
-                I have experience in cloud computing, CI/CD, and infrastructure as code. 
-                I am always eager to learn new technologies and improve my skills.
+                Technology has always been a big part of my life. With more than 2.5 years of experience in networking, I built a strong base in Linux, Cisco, and MikroTik. For the past year, I’ve been working in DevOps, focusing on CI/CD pipelines, Azure, AWS, Docker, Kubernetes, GitHub Actions, Terraform, Ansible, server management, and cybersecurity, all centered on automation and reliability.
                 """
             )
         with right_column:
             st_lottie(lottie_coding, height=300, key="coding")
 
 
-# ----- Skills Section ----
-if selected == "Skills":
+# ----- Experience & Skills Section ----
+if selected == "Experience & Skills":
+    st.write("---")
+    st.header("Experience")
+
+    st.markdown(
+        """
+**IT Support & DevOps Engineer**  
+TygrLabs · Full-time  
+Aug 2025 – Present · 6 mos · On-site
+
+- Used GitHub, Docker, and Linux for DevOps automation.
+- Improved workflows and reduced deployment errors by 25%.
+- Hands-on experience with Microsoft Azure, including setting up VMs and managing resources.
+- Worked on DevOps workflows to streamline cloud operations.
+- Configured and monitored Starlink, MikroTik routers, switches, firewalls, and Wi‑Fi.
+- Troubleshot network issues, ensuring 99% uptime.
+- Maintained and supported Windows Servers, network devices, and end-user systems; achieved 75% system availability.
+- Managed DevOps pipelines for reliable automated deployments.
+- Maintained IT infrastructure, including networks, servers, and cloud systems.
+        """.strip()
+    )
+
+    st.markdown("---")
+
+    st.markdown(
+        """
+**Network & System Engineer (NOC)**  
+Dhaka Fiber Net Ltd. · Full-time  
+Jan 2025 – Jul 2025 · 7 mos · Dhaka, Bangladesh · On-site
+
+- Automated OLT commands using Python, increasing service delivery speed by 60%.
+- Deployed network automation scripts via GitHub, improving DevOps readiness by 20%.
+- Monitored and controlled network performance in a NOC environment, ensuring 99.9% uptime with automation and management tools.
+- Worked on OLT systems, Cisco routers/switches, MikroTik routers, and Ubuntu servers.
+- Designed and implemented chatbot workflows in ReveChat to automate customer conversations and reduce manual support workload.
+        """.strip()
+    )
+
+    st.markdown("---")
+
+    st.markdown(
+        """
+**Network Support Engineer**  
+ASIANET Online Service · Full-time  
+Jan 2024 – Dec 2024 · 1 yr · Uttara, Dhaka, Bangladesh
+
+- Optimized network support and management with Python and MikroTik, boosting efficiency by 25%.
+- Configured and managed MikroTik routers, VLANs, PPPoE, DHCP, NAT, and firewall settings.
+- Monitored networks and troubleshot issues using WinBox and The Dude.
+        """.strip()
+    )
+
     st.write("---")
     st.header("Skills")
     st.markdown(
         """
-        <ul>
+- Version Control
+- Linux (Ubuntu, RedHat)
+- Scripting & Automation (Python, Bash)
+- Networking (TCP/IP, DNS, DHCP)
+- Containerization & Orchestration (Docker, Kubernetes)
+- Cloud Computing (AZURE, AWS)
+- CI/CD (Jenkins, GitHub Actions)
+- Infrastructure as Code (Terraform, Ansible)
+- Monitoring & Logging (Prometheus, Grafana)
+        """.strip()
+    )
+
+    # Stop here so the old "Skills" + "Soft Skills" sections below don't render.
+    st.stop()
+    st.markdown(
+        """
         <ul style="list-style: none; padding-left: 0;">
-            <li>- Version Control (Git) <i class="bi bi-git" style="color:#f34f29; margin-left: 8px;"></i></li>
-            <li>- Linux (Ubuntu, RedHat) <i class="bi bi-ubuntu" style="color:#198754; margin-left: 8px;"></i></li>
-            <li>- Scripting & Automation (Python, Bash) <i class="bi bi-filetype-py" style="color:#3572A5; margin-left: 8px;"></i></li>
-            <li>- Networking (TCP/IP, DNS, DHCP) <i class="bi bi-hdd-network" style="color:#fd7e14; margin-left: 8px;"></i></li>
-            <li>- Containerization & Orchestration (Docker, Kubernetes) <i class="bi bi-box-seam" style="color:#0dcaf0; margin-left: 8px;"></i></li>
-            <li>- Cloud Computing (AWS) <i class="bi bi-cloud" style="color:#0A66C2; margin-left: 8px;"></i></li>
-            <li>- CI/CD (Jenkins, GitHub Actions) <i class="bi bi-arrow-repeat" style="color:#198754; margin-left: 8px;"></i></li>
-            <li>- Infrastructure as Code (Terraform, Ansible) <i class="bi bi-hdd-network-fill" style="color:#6f42c1; margin-left: 8px;"></i></li>
-            <li>- Monitoring & Logging (Prometheus, Grafana) <i class="bi bi-eyeglasses" style="color:#fd7e14; margin-left: 8px;"></i></li>
+            <li>- Version Control</li>
+            <li>- Linux (Ubuntu, RedHat)</li>
+            <li>- Scripting & Automation (Python, Bash)</li>
+            <li>- Networking (TCP/IP, DNS, DHCP)</li>
+            <li>- Containerization & Orchestration (Docker, Kubernetes)</li>
+            <li>- Cloud Computing (AZURE, AWS)</li>
+            <li>- CI/CD (Jenkins, GitHub Actions)</li>
+            <li>- Infrastructure as Code (Terraform, Ansible)</li>
+            <li>- Monitoring & Logging (Prometheus, Grafana)</li>
         </ul>
         """,
         unsafe_allow_html=True
