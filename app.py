@@ -24,9 +24,11 @@ APP_DIR = Path(__file__).resolve().parent
 
 def safe_open_image(path: Path):
     try:
+        if not path.exists():
+            return None
         return Image.open(path)
     except Exception as e:
-        st.warning(f"Missing/invalid image: {path.name} ({e})")
+        st.warning(f"Invalid image: {path.name} ({e})")
         return None
 
 # Updated working Lottie link
@@ -37,6 +39,15 @@ lottie_contact = load_lottie_url("https://lottie.host/5dabaff6-7ed5-40ef-b15e-c8
 image1 = safe_open_image(APP_DIR / "images" / "project1.png")
 # image upload for project 2
 image2 = safe_open_image(APP_DIR / "images" / "project2.png")
+
+# image upload for project 3 (AWS CI/CD)
+aws_cicd_image1 = safe_open_image(APP_DIR / "images" / "aws_cicd_image1.png")
+
+# image upload for project 4 (Azure CI/CD)
+azure_cicd_image = safe_open_image(APP_DIR / "images" / "Pipeline.jpg")
+
+# image upload for project 5 (Jenkins CI/CD)
+jenkins_cicd_image = safe_open_image(APP_DIR / "images" / "Jenkins cicd.jpg")
 
 
 # ----- Header Section ----
@@ -84,8 +95,8 @@ st.markdown(
 with st.container():
     selected = option_menu(
         menu_title=None,
-        options=["About", "Experience & Skills", "Projects", "Contact"],
-        icons=["person-circle","1-circle" , "code-slash", "chat"],
+        options=["About", "Experience & Skills", "Certifications", "Projects", "Contact"],
+        icons=["person-circle", "1-circle", "patch-check", "code-slash", "chat"],
         orientation="horizontal",
     )
 #------About Section ----
@@ -113,7 +124,7 @@ if selected == "Experience & Skills":
         """
 **IT Support & DevOps Engineer**  
 TygrLabs · Full-time  
-Aug 2025 – Present · 6 mos · On-site
+Aug 2025 – Present · On-site
 
 - Used GitHub, Docker, and Linux for DevOps automation.
 - Improved workflows and reduced deployment errors by 25%.
@@ -205,11 +216,123 @@ Jan 2024 – Dec 2024 · 1 yr · Uttara, Dhaka, Bangladesh
         unsafe_allow_html=True
     )
 
+# ----- Certifications ----
+if selected == "Certifications":
+    st.write("---")
+    st.header("Certifications")
+    st.write("##")
+    st.markdown(
+    """
+**Fortinet NSE Certification**  
+Issuer: Fortinet · Issued: Dec 2025  
+Skills: Cybersecurity · Information Security Management · Social Engineering · Threat Intelligence
+
+---
+
+**DevOps Professional Training Certification**  
+Issuer: Interactive Cares · Issued: Apr 2025
+
+---
+
+**RedHat Professional Training Certification**  
+Issuer: Atova Technology · Issued: Jan 2025
+
+---
+
+**MikroTik Certified Network Associate (MTCNA)**  
+Issuer: MikroTik · Issued: Nov 2024  
+Credential ID: 2411NA9081  
+Skills: Network Configuration · MikroTik RouterOS · Routing Protocols · NAT Configuration · Firewall Management · VPN Configuration · Troubleshooting · Switching & VLAN Configuration · QoS
+
+---
+
+**CCNA Professional Training Certification**  
+Issuer: Atova Technology · Issued: Jun 2024
+
+---
+
+**APNIC Certifications**  
+Issuer: APNIC · Issued: Jan 2024  
+Skills: Routing Fundamentals · Intro to BGP · OSPF · IPv6 Fundamentals · IPv6 Address Planning
+
+---
+
+**Cisco Networking Academy Certifications**  
+Issuer: Cisco Networking Academy · Issued: Jan 2024  
+Skills: Introduction to Modern AI · IT Essentials · Junior Cybersecurity Analyst Career Path · Linux Essentials · Network Addressing & Basic Troubleshooting · Networking Basics · Networking Devices & Initial Configuration · Network Support & Security
+
+---
+
+**MikroTik Professional Training Certification**  
+Issuer: Atova Technology · Issued: Aug 2023
+    """.strip()
+    )
+
 # ----- Projects ----
 if selected == "Projects":
     st.write("---")
     st.header("Projects")
     st.write("##")
+
+    # Project: CI/CD with Azure
+    image_column, text_column = st.columns((1, 2))
+    with image_column:
+        if azure_cicd_image:
+            st.image(azure_cicd_image, caption="")
+
+    with text_column:
+        st.subheader("CI/CD with Azure")
+        st.write(
+            """
+            - Azure Container Registry (ACR) stores Docker images
+            - Azure VM hosts the application
+            - Azure Pipelines (YAML) automates build & deploy
+            """
+        )
+        st.markdown("**Skills:** Microsoft Azure · DevOps · Azure DevOps Services · CI/CD")
+
+    st.write("##")
+
+    # Project: Jenkins CI/CD Pipeline
+    image_column, text_column = st.columns((1, 2))
+    with image_column:
+        if jenkins_cicd_image:
+            st.image(jenkins_cicd_image, caption="")
+
+    with text_column:
+        st.subheader("Jenkins CI/CD Pipeline Project")
+        st.write(
+            """
+            - Built a CI/CD pipeline using Jenkins and Git
+            - Automated build, testing, and deployment on every code push
+            - Improved delivery speed and reliability with consistent automation
+            """
+        )
+        st.markdown("**Skills:** Jenkins · CI/CD")
+
+    st.write("##")
+
+    # Project: Portfolio Deployment with CI/CD (AWS)
+    image_column, text_column = st.columns((1, 2))
+    with image_column:
+        if aws_cicd_image1:
+            st.image(aws_cicd_image1, caption="")
+
+    with text_column:
+        st.subheader("Portfolio Deployment with CI/CD (AWS)")
+        st.write(
+            """
+            - Built and containerized the portfolio using Docker
+            - Automated build/test/deploy with GitHub Actions on every push
+            - Deployed and hosted the app on AWS for reliable delivery
+            """
+        )
+        st.markdown("**Skills:** DevOps · Amazon Web Services (AWS) · GitHub Actions · Docker")
+        st.markdown("[GitHub Repo](https://github.com/ajmdrstalha/Python_Protfolio_Website)")
+        st.markdown("[Website Portfolio](https://ajmdrstalha.xyz)")
+
+    st.write("##")
+
     image_column, text_column = st.columns((1, 2))
     with image_column:
         if image1:
@@ -219,7 +342,9 @@ if selected == "Projects":
         st.subheader("OLT Auto Command")
         st.write(
             """
-             Discover how to automate OLT power checks command with Python and Streamlit, all wrapped up in a Docker container to minimize manual errors and save you precious time.
+            - Automated OLT power-check commands to reduce manual work
+            - Built a simple Streamlit UI for faster operations
+            - Packaged everything in Docker for easy, consistent runs
             """
         )
         st.markdown("[GitHub](https://github.com/ajmdrstalha/Epon-Command-Generator)")
@@ -235,8 +360,9 @@ if selected == "Projects":
         st.subheader("Networking Project")
         st.write(
             """
-              Configured Cisco routers and switches with VLANs, inter-VLAN routing, EtherChannel, and STP load-balancing. 
-              Secured the network using port security and SSH, and optimized IP addressing through SLSM, VLSM, and other techniques.
+                        - Configured VLANs, inter-VLAN routing, and EtherChannel on Cisco devices
+                        - Implemented STP tuning / load balancing for resilient switching
+                        - Secured access with SSH + port security and optimized addressing (VLSM/SLSM)
             """
         )    
         st.markdown("[File](https://drive.google.com/drive/folders/1NzzuxnJufYZXCIGWM7CDsw-z65xyFdAR)")
