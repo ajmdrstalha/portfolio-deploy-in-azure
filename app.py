@@ -47,7 +47,7 @@ aws_cicd_image1 = safe_open_image(APP_DIR / "images" / "aws_cicd_image1.png")
 azure_cicd_image = safe_open_image(APP_DIR / "images" / "Pipeline.jpg")
 
 # image upload for project 5 (Jenkins CI/CD)
-jenkins_cicd_image = safe_open_image(APP_DIR / "images" / "Jenkins cicd.jpg")
+jenkins_cicd_image = safe_open_image(APP_DIR / "images" / "Jenkins_cicd.jpg")
 
 
 # ----- Header Section ----
@@ -225,7 +225,7 @@ if selected == "Certifications":
     """
 **Fortinet NSE Certification**  
 Issuer: Fortinet · Issued: Dec 2025  
-Skills: Cybersecurity · Information Security Management · Social Engineering · Threat Intelligence
+Course: Introduction the Threat Landscape 3.0
 
 ---
 
@@ -253,13 +253,13 @@ Issuer: Atova Technology · Issued: Jun 2024
 
 **APNIC Certifications**  
 Issuer: APNIC · Issued: Jan 2024  
-Skills: Routing Fundamentals · Intro to BGP · OSPF · IPv6 Fundamentals · IPv6 Address Planning
+Courses: Routing Fundamentals · Intro to BGP · OSPF · IPv6 Fundamentals · IPv6 Address Planning
 
 ---
 
 **Cisco Networking Academy Certifications**  
 Issuer: Cisco Networking Academy · Issued: Jan 2024  
-Skills: Introduction to Modern AI · IT Essentials · Junior Cybersecurity Analyst Career Path · Linux Essentials · Network Addressing & Basic Troubleshooting · Networking Basics · Networking Devices & Initial Configuration · Network Support & Security
+Courses: Introduction to Modern AI · IT Essentials · Junior Cybersecurity Analyst Career Path · Linux Essentials · Network Addressing & Basic Troubleshooting · Networking Basics
 
 ---
 
