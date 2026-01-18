@@ -47,7 +47,7 @@ aws_cicd_image1 = safe_open_image(APP_DIR / "images" / "aws_cicd_image1.png")
 azure_cicd_image = safe_open_image(APP_DIR / "images" / "Pipeline.jpg")
 
 # image upload for project 5 (Jenkins CI/CD)
-jenkins_cicd_image = safe_open_image(APP_DIR / "images" / "Jenkins_cicd.jpg")
+jenkins_cicd_image = safe_open_image(APP_DIR / "images" / "jenkins_cicd.jpg")
 
 
 # ----- Header Section ----
